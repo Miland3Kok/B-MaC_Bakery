@@ -4,7 +4,9 @@
 
 ## Overview
 
-Welcome to the B-MaC repository. This comprehensive solution is designed to revolutionize the way our esteemed bakery conglomerate operates. B-MaC specializes in delivering high-quality cakes, donuts, cookies, and more to other bakeries and retail customers through an efficient online ordering platform. Our key differentiator lies in offering same-day ordering and next-day delivery, thanks to a strategically located warehouse stocked with fresh ingredients.
+Welcome to the B-MaC repository. This is designed to automate the supply chain management of B-MaC and to give customer-oriented communication.
+
+ B-MaC specializes in delivering high-quality cakes, donuts, cookies, and more to other bakeries and retail customers through an efficient online ordering platform. Our key differentiator lies in offering same-day ordering and next-day delivery, thanks to a strategically located warehouse stocked with fresh ingredients.
 
 ## Technologies
 
