@@ -1,0 +1,34 @@
+### Authorization password grant
+POST http://localhost:8180/realms/client_application/protocol/openid-connect/token HTTP/1.1
+content-type: application/x-www-form-urlencoded
+
+client_id=bmac_application&client_secret=ZAjXEbqWWLMZceGEkCOJFf5LOjMYN8jc&username=admin&password=password&grant_type=password&scope=openid
+
+> {%
+    client.global.set("access_token", response.body.access_token);
+%}
+
+### Generate sale report by date
+GET http://localhost:8082/api/sales/date?date=2023-10-26
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+### Get all products
+GET http://localhost:8082/api/product/all
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+### Generate sale report by product
+GET http://localhost:8082/api/sales/product?productId=9fcb0e7e-6a38-432c-9e9a-864e8e4c15a1
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+### Get all clients
+GET http://localhost:8082/api/account/get/all
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+### Generate sale report by client
+GET http://localhost:8082/api/sales/client?clientId=1
+Authorization: Bearer {{access_token}}
+Content-Type: application/json

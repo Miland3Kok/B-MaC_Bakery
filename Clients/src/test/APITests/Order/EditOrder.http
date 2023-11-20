@@ -1,0 +1,34 @@
+### Authorization password grant
+POST http://localhost:8180/realms/client_application/protocol/openid-connect/token HTTP/1.1
+content-type: application/x-www-form-urlencoded
+
+client_id=bmac_application&client_secret=ZAjXEbqWWLMZceGEkCOJFf5LOjMYN8jc&username=user&password=password&grant_type=password&scope=openid
+
+> {%
+    client.global.set("access_token", response.body.access_token);
+%}
+
+### Get unconfirmed orders
+GET http://localhost:8082/api/orders/all/unconfirmed
+Authorization: Bearer {{access_token}}
+Accept: application/json
+
+### Confirm order
+POST http://localhost:8082/api/orders/confirm?orderId=d78be6c0-17a9-4099-84f9-54c2f779a4b4
+Authorization: Bearer {{access_token}}
+
+### Cancel order
+DELETE http://localhost:8082/api/orders/cancel?orderId=ec93ebec-d108-4779-bdd3-66c9ecbed3a0
+Authorization: Bearer {{access_token}}
+
+### Get orders history sorted by date
+GET http://localhost:8082/api/orders/all/sorted
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+
+{
+   "startDate": "2021-06-14",
+   "endDate": "2022-06-17",
+   "status": "ORDER_PLACED"
+}
